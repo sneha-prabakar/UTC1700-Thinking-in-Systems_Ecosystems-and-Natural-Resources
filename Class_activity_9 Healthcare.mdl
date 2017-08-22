@@ -1,0 +1,117 @@
+{UTF-8}
+Catching illness=
+	Population interaction*Probability of catching sickness*Probability of contact with sick people\
+		*Number of healthy people
+	~	
+	~		|
+
+Duration of illness=
+	0.5
+	~	
+	~		|
+
+Number of healthy people= INTEG (
+	Recovery rate-Catching illness,
+		99)
+	~	
+	~		|
+
+Number of sick people= INTEG (
+	Catching illness-Recovery rate,
+		1)
+	~	
+	~		|
+
+Population interaction=
+	10
+	~	
+	~		|
+
+Probability of catching sickness=
+	0.5
+	~	
+	~		|
+
+Probability of contact with sick people=
+	0.5
+	~	
+	~		|
+
+Recovery rate=
+	Number of sick people/Duration of illness
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 6
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|72,72,100,0
+10,1,Number of healthy people,454,98,40,20,3,3,0,0,0,0,0,0
+10,2,Number of sick people,436,289,40,20,3,3,0,0,0,0,0,0
+1,10,12,2,4,0,0,22,0,0,0,-1--1--1,,1|(725,289)|
+1,11,12,1,100,0,0,22,0,0,0,-1--1--1,,1|(725,98)|
+11,12,0,725,179,8,6,33,3,0,0,4,0,0,0
+10,13,Catching illness,774,179,41,8,40,3,0,0,-1,0,0,0
+1,15,17,1,4,0,0,22,0,0,0,-1--1--1,,1|(201,98)|
+1,16,17,2,100,0,0,22,0,0,0,-1--1--1,,1|(201,289)|
+11,17,0,201,185,8,6,33,3,0,0,4,0,0,0
+10,18,Recovery rate,251,185,42,12,40,131,0,0,-1,0,0,0
+10,19,Probability of contact with sick people,802,62,55,14,8,3,0,0,0,0,0,0
+1,20,19,13,1,0,0,0,0,64,0,-1--1--1,,1|(875,158)|
+10,21,Population interaction,878,268,55,8,8,3,0,0,0,0,0,0
+1,22,21,13,1,0,0,0,0,64,0,-1--1--1,,1|(802,298)|
+10,23,Probability of catching sickness,937,208,58,33,8,131,0,0,0,0,0,0
+1,24,23,13,1,0,0,0,0,64,0,-1--1--1,,1|(831,240)|
+10,34,Duration of illness,75,230,40,20,3,3,0,0,0,0,0,0
+1,35,34,18,1,0,0,0,0,64,0,-1--1--1,,1|(147,270)|
+1,36,2,18,1,0,0,0,0,64,0,-1--1--1,,1|(313,267)|
+1,37,1,13,1,0,0,0,0,64,0,-1--1--1,,1|(563,196)|
+///---\\\
+:L<%^E!@
+1:Current.vdf
+9:Current
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:2,
+34:0,
+4:Time
+5:Probability of catching sickness
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:0
+24:0
+25:6
+26:6

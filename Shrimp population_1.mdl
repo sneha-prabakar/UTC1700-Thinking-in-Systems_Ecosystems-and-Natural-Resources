@@ -1,0 +1,119 @@
+{UTF-8}
+Birth rate=
+	0.1
+	~	
+	~		|
+
+Births per year=
+	Birth rate*Shrimp population
+	~	
+	~		|
+
+Cumulative shrimp collection= INTEG (
+	Shrimping per year,
+		0)
+	~	
+	~		|
+
+Death rate = WITH LOOKUP (
+	Shrimp population,
+		([(300,0)-(850,0.3)],(300,0.0165),(350,0.0195),(400,0.0225),(450,0.0285),(500,0.0405\
+		),(550,0.06),(600,0.087),(650,0.119),(700,0.153),(750,0.216),(800,0.295) ))
+	~	
+	~	\!Shrimp population\!Death rate
+	|
+
+Deaths per year=
+	Death rate*Shrimp population
+	~	
+	~		|
+
+Shrimp population= INTEG (
+	(Births per year)-(Deaths per year+Shrimping per year),
+		100)
+	~	
+	~		|
+
+Shrimping per year=
+	6+STEP( 4 , 20)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 50
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|72,72,100,0
+10,1,Shrimp population,502,223,40,20,3,3,0,0,0,0,0,0
+12,2,48,309,220,10,8,0,3,0,0,-1,0,0,0
+1,4,6,1,4,0,0,22,0,0,0,-1--1--1,,1|(429,220)|
+1,5,6,2,100,0,0,22,0,0,0,-1--1--1,,1|(351,220)|
+11,6,0,390,220,6,8,34,3,0,0,1,0,0,0
+10,7,Births per year,390,243,52,15,40,131,0,0,-1,0,0,0
+12,8,48,785,229,10,8,0,3,0,0,-1,0,0,0
+1,10,12,8,4,0,0,22,0,0,0,-1--1--1,,1|(719,229)|
+1,11,12,1,100,0,0,22,0,0,0,-1--1--1,,1|(597,229)|
+11,12,0,658,229,6,8,34,3,0,0,1,0,0,0
+10,13,Deaths per year,658,248,80,11,40,131,0,0,-1,0,0,0
+12,14,48,503,99,10,8,0,3,0,0,-1,0,0,0
+1,16,18,14,4,0,0,22,0,0,0,-1--1--1,,1|(503,128)|
+1,17,18,1,100,0,0,22,0,0,0,-1--1--1,,1|(503,182)|
+11,18,0,503,155,8,6,33,3,0,0,4,0,0,0
+10,19,Shrimping per year,554,155,43,18,40,131,0,0,-1,0,0,0
+10,20,Birth rate,319,321,25,8,8,3,0,0,0,0,0,0
+10,21,Death rate,740,321,43,12,8,131,0,0,0,0,0,0
+1,22,20,7,1,0,0,0,0,64,0,-1--1--1,,1|(361,315)|
+1,23,21,13,1,0,0,0,0,64,0,-1--1--1,,1|(664,295)|
+1,26,1,7,1,0,0,0,0,64,0,-1--1--1,,1|(442,281)|
+1,28,1,21,1,0,0,0,0,64,0,-1--1--1,,1|(607,374)|
+1,29,1,13,1,0,0,0,0,64,0,-1--1--1,,1|(579,273)|
+10,30,Cumulative shrimp collection,648,64,40,20,3,3,0,0,0,0,0,0
+1,31,19,30,0,0,0,0,0,64,0,-1--1--1,,1|(594,115)|
+///---\\\
+:L<%^E!@
+1:Current.vdf
+9:Current
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:2,
+34:0,
+4:Time
+5:Shrimp population
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:0
+41:0
+42:0
+24:0
+25:50
+26:50
